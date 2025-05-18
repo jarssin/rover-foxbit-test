@@ -2,6 +2,12 @@
 
 Este projeto simula o controle de robôs exploradores (rovers) em um plateau.
 
+## Decisões técnicas
+
+### Por que o projeto não utiliza `interfaces` em todas as entidades-chave?
+
+> Segundo o livro _Learning Go: An Idiomatic Approach_, criar interfaces prematuramente, antes de existir a necessidade de múltiplas implementações, adiciona complexidade desnecessária ao projeto. O Go incentiva o uso de interfaces implícitas e recomenda defini-las apenas quando há mais de uma implementação concreta, mantendo o código mais simples e idiomático.
+
 ## Como funciona
 
 - O plateau é definido por um grid de coordenadas.
