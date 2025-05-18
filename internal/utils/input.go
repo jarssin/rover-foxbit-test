@@ -3,6 +3,7 @@ package utils
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"os"
 	"strconv"
 	"strings"
@@ -22,6 +23,10 @@ type InputReader struct {
 
 func NewInputReader() InputReaderInterface {
 	return &InputReader{reader: bufio.NewReader(os.Stdin)}
+}
+
+func NewInputReaderFrom(r io.Reader) InputReaderInterface {
+	return &InputReader{reader: bufio.NewReader(r)}
 }
 
 func (ir *InputReader) PlateauSize() (int, int, error) {
