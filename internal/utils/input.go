@@ -4,9 +4,10 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"rover/pkg/rover"
 	"strconv"
 	"strings"
+
+	"github.com/jarssin/rover-foxbit-test/pkg/rover"
 )
 
 type InputReaderInterface interface {

@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"rover/internal/utils"
-	"rover/pkg/plateau"
-	"rover/pkg/rover"
+
+	"github.com/jarssin/rover-foxbit-test/internal/utils"
+	"github.com/jarssin/rover-foxbit-test/pkg/plateau"
+	"github.com/jarssin/rover-foxbit-test/pkg/rover"
 )
 
 func main() {
@@ -28,12 +29,17 @@ func main() {
 		}
 
 		rover := rover.NewRover(x, y, d, p)
-		fmt.Printf("Rover: %+v\n", rover)
 
-		// commands, err := reader.RoverCommands()
-		// if err != nil {
-		// 	return
-		// }
+		commands, err := reader.RoverCommands()
+		if err != nil {
+			return
+		}
 
+		if err := rover.Execute(commands); err != nil {
+			fmt.Println("Error executing commands:", err)
+			return
+		}
+
+		fmt.Printf("%d %d %s\n", rover.X, rover.Y, rover.D)
 	}
 }
